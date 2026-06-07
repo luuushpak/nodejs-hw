@@ -40,9 +40,9 @@ export const loginUser = async (req, res) => {
     throw createHttpError(401, 'Invalid credentials');
   }
 
-  const isValiidPassword = await bcrypt.compare(password, user.password);
+  const isValidPassword = await bcrypt.compare(password, user.password);
 
-  if (!isValiidPassword) {
+  if (!isValidPassword) {
     throw createHttpError(401, 'Invalid credentials');
   }
 
