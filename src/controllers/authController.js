@@ -7,7 +7,7 @@ import jwt from 'jsonwebtoken';
 import handlebars from 'handlebars';
 import path from 'node:path';
 import fs from 'node:fs/promises';
-import { sendMail } from '../utils/sendMail.js';
+import { sendMail } from '../utils/sendEmail.js';
 
 export const registerUser = async (req, res) => {
   const { email, password } = req.body;
@@ -129,7 +129,7 @@ export const requestResetEmail = async (req, res) => {
   });
 
   try {
-    await sendMail({
+    await sendEmail({
       from: process.env.SMTP_FROM,
       to: email,
       subject: 'Reset your password',
